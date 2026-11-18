@@ -1,0 +1,18 @@
+نکسوس یدک - نسخه اصلاح اتصال پنل مدیریت به دیتابیس
+
+۱) در GitHub فایل‌های این بسته را در ریشه مخزن جایگزین کنید.
+۲) در Render، Start Command را روی این مقدار بگذارید:
+   gunicorn app:app
+۳) در Render > Environment این متغیرها را تنظیم کنید:
+   SUPABASE_URL = آدرس پروژه فعلی Supabase
+   SUPABASE_SERVICE_ROLE_KEY = کلید secret/service_role پروژه Supabase
+   SUPABASE_TABLE = yadakyar_orders
+   ADMIN_PASSWORD = یک رمز قوی و اختصاصی برای پنل مدیریت
+
+نکات امنیتی:
+- مقدار SUPABASE_SERVICE_ROLE_KEY را هرگز در فایل HTML یا GitHub قرار ندهید.
+- رمز ADMIN_PASSWORD را هم در فایل‌ها ننویسید؛ فقط در Environment رندر وارد کنید.
+- هیچ جدول یا سفارشی در Supabase حذف یا بازسازی نمی‌شود.
+- پس از تنظیم متغیرها، یک بار Deploy مجدد انجام دهید.
+- پنل مدیریت هنگام باز شدن، رمز ADMIN_PASSWORD را می‌پرسد.
+- تغییر وضعیت سفارش‌ها در دیتابیس ذخیره می‌شود.
